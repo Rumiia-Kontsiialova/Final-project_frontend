@@ -1,13 +1,12 @@
-import Button from "../../shared/components/Button/Button";
-import InputForm from "../../shared/components/InputForm/InputForm";
+import Login from "../../modules/Login/Login";
 
 const LoginPage = () => {
      return (
     <>
         <h1>LoginPage</h1>
-        <InputForm>Username, or email</InputForm>
-        <InputForm>Password</InputForm>
-        <Button>Log in</Button>
+
+        <Login />
+
     </>
   )
 
