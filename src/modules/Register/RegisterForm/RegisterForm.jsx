@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import TextField from "../../../shared/components/TextField/TextField";
 import Button from "../../../shared/components/Button/Button";
 
-const SignUpForm = () => {
-  const { register, handleSubmit, reset, formState: { errors }} = useForm({
+const RegisterForm = ({requestErrors, isSubmitSuccess, submitForm}) => {
+  const { register, handleSubmit, setError, reset, formState: { errors }} = useForm({
     mode: "onSubmit",       // ошибки показываются после submit
     defaultValues: {        // лучше явно задать пустые значения
       email: "",
@@ -13,8 +14,26 @@ const SignUpForm = () => {
     }
   });
 
-  const onSubmit = values => {
-    console.log(values);
+  useEffect(() => {
+    if(requestErrors) {
+      for(const key in requestErrors) {
+        setError(key, {
+          message: requestErrors[key]
+        })
+      }
+    }
+  }, [requestErrors, setError])
+
+  useEffect(() => {
+    if(isSubmitSuccess) {
+      reset()
+    }
+  }, [isSubmitSuccess, reset])
+
+  const onSubmit = (values) => {
+    console.log("FORM VALUES:", values);
+    submitForm(values);
+    reset();
   };
 
   return (
@@ -22,22 +41,22 @@ const SignUpForm = () => {
       <TextField
         register={register}
         name="email"
-        placeholder="Username, or email"
-        rules={{ required: "This email is already exists" }}
+        placeholder="Email"
+        rules={{ required: "Email required" }}
         error={errors.email}
       />
       <TextField
         register={register}
         name="fullname"
         placeholder="Fullname"
-        rules={{ required: "Fullname is already exists" }}
+        rules={{ required: "Fullname required" }}
         error={errors.fullname}
       />
       <TextField
         register={register}
         name="username"
         placeholder="Username"
-        rules={{ required: "This username is already taken" }}
+        rules={{ required: "This required" }}
         error={errors.username}
       />
       <TextField
@@ -45,7 +64,7 @@ const SignUpForm = () => {
         name="password"
         placeholder="Password"
         type="password"
-        rules={{ required: "Invalid email or password" }}
+        rules={{ required: "Password required" }}
         error={errors.password}
       />
 
@@ -54,4 +73,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default RegisterForm;
