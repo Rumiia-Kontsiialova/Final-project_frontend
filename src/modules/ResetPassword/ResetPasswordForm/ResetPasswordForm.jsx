@@ -1,6 +1,4 @@
 import { useForm } from "react-hook-form";
-import TextField from "../../../shared/components/TextField/TextField";
-import Button from "../../../shared/components/Button/Button";
 import styles from "./ResetPasswordForm.module.css"
 
 const LoginForm = () => {
@@ -17,7 +15,7 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.formBox}>
-      <TextField
+      <input
         register={register}
         name="identifier"
         placeholder="Email or Username"
@@ -25,7 +23,7 @@ const LoginForm = () => {
         error={errors.identifier}
       />
     
-      <Button type="submit" className={styles.resetBtn}>Reset your password</Button>
+      <button type="submit" className={styles.resetBtn}>Reset your password</button>
     </form>
   );
 };

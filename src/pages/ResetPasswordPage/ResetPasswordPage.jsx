@@ -5,7 +5,6 @@ const ResetPasswordPage = () => {
     return (
     <>
       <ResetPassword />
-        
     </>
   )
 
