@@ -1,0 +1,40 @@
+.formBox {
+    background: white;
+    border: 1px solid #dbdbdb;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.img_logo {
+    width: 190px;
+    height: 106px;
+    text-align: center;
+}
+
+.orBlock {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: #8e8e8e;
+    font-weight: 600;
+    background-color: white;
+}
+
+.line {
+    flex: 1;
+    height: 1px;
+    background: #dbdbdb;
+}
+
+.orBlock span {
+    margin: 0 20px;
+}
+
+.forgot {
+    color: #00376b;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+

@@ -1,0 +1,39 @@
+.formBox {
+    background: white;
+    border: 1px solid #dbdbdb;
+    padding: 40px;
+    text-align: center;
+    font-family: Roboto;
+}
+
+.img_logo {
+    width: 190px;
+    height: 106px;
+    text-align: center;
+}
+
+.formBox h3 {
+    font-weight: 600;
+    font-size: 16px;
+    color: rgba(115, 115, 115, 1);
+    margin-bottom: 30px;
+    line-height: 20px;
+}
+
+.formBox p {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(115, 115, 115, 1);
+    padding: 10px 0 10px 0;
+}
+
+.formBox a {
+    text-decoration: none;
+    color: rgba(0, 55, 107, 1);
+    cursor: pointer;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+}

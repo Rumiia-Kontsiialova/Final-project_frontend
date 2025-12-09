@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { registerUser } from "../../store/auth/authOperations";
 import { Navigate } from "react-router-dom";
 import { selectAuthRequest } from "../../store/auth/authSelectors";
+import styles from "./Register.module.css";
 
 const Register = () => {
 
@@ -11,30 +12,22 @@ const Register = () => {
 
     const dispatch = useDispatch();
 
-    const noRegister = async(payload) => {
+    const onRegister = async(payload) => {
         dispatch(registerUser(payload));
     }
 
     if(isRegisterSuccess) return <Navigate to="/login" /> 
 
     return (
-    <div>
-        <h1>Sign Up</h1>
+    <div className={styles.container}>
         <div>
-            <RegisterForm requestErrors={error} isSubmitSuccess={isRegisterSuccess} submitForm={noRegister} />
+            <RegisterForm requestErrors={error} isSubmitSuccess={isRegisterSuccess} submitForm={onRegister} />
             {loading && <p>Register request...</p>}
-            {error && <p style={{color: "red"}}>{error.message}</p>}
-            <p>
-                By signing up, you agree to our{' '}
-                <a href="https://help.instagram.com/581066165581870" target="_blank" rel="noopener noreferrer">Terms</a>
-                ,{' '}
-                <a href="https://about.instagram.com/data-policy?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-                , and{' '}
-                <a href="https://privacycenter.instagram.com/policies/cookies/" target="_blank" rel="noopener noreferrer">Cookies Policy</a>.
-            </p>
+            {error && <p style={{color: "red"}}>{error.message}</p>} 
         </div>
-        <div>
-            <p>Have an account? <Link to="/login">Log in</Link></p>
+
+        <div className={styles.loginBox}>
+            <p>Have an account? <Link to="/login" className={styles.loginLink}>Log in</Link></p>
         </div>
     </div>
   )

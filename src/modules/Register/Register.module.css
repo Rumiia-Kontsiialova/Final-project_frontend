@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    margin: 0 auto;
+    font-family: Roboto;
+    gap: 15px;
+}
+
+
+
+.loginBox {
+  background: white;
+  border: 1px solid #dbdbdb;
+  text-align: center;
+  margin: 0 auto;
+  padding: 15px 95px 15px 95px;
+  color: rgba(0, 0, 0, 1);
+  
+}
+
+p {
+    color: rgba(0, 0, 0, 1);
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.loginLink {
+    text-decoration: none;
+    color: rgba(0, 149, 246, 1);
+    cursor: pointer;
+    font-weight: 600;
+}
+
