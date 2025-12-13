@@ -20,3 +20,12 @@ export const logout = async () => {
     await instance.post("/logout");
     instance.defaults.headers["Authorization"] = "";
 }
+
+export const getCurrent = async (token) => {
+    const { data } = await instance.get("/auth/current", {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    });
+    return data;
+}
